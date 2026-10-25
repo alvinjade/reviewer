@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programming Mastery Reviewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased pb-24 md:pb-12">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 font-bold">
+                    <i class="fa-brands fa-java text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-base font-bold text-slate-100 leading-tight">Java Mastery Reviewer</h1>
+                    <p class="text-xs text-slate-400">From Zero to Hello World 🚀</p>
+                </div>
+            </div>
+            <button id="toggleSearchBtn" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        
+        <!-- Live Search Bar -->
+        <div id="searchContainer" class="hidden max-w-4xl mx-auto px-4 pb-3">
+            <div class="relative">
+                <i class="fa-solid fa-search absolute left-3.5 top-3 text-slate-400"></i>
+                <input type="text" id="searchInput" placeholder="Search topic (e.g., Scanner, Bitwise, Array, Switch)..." 
+                    class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-amber-500">
+            </div>
+        </div>
+
+        <!-- Horizontal Topic Pills -->
+        <div class="max-w-4xl mx-auto px-4 overflow-x-auto hide-scrollbar flex items-center gap-2 py-2 border-t border-slate-800/60 text-xs">
+            <a href="#section-1" class="px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 whitespace-nowrap font-medium hover:bg-amber-500/20 transition">1. Intro & WORA</a>
+            <a href="#section-2" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">2. Conventions</a>
+            <a href="#section-3" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">3. I/O & Scanner</a>
+            <a href="#section-4" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">4. Data Types</a>
+            <a href="#section-5" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">5. Math Operators</a>
+            <a href="#section-6" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">6. Bitwise & Binary</a>
+            <a href="#section-7" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">7. Precedence Matrix</a>
+            <a href="#section-8" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">8. Decision & Switch</a>
+            <a href="#section-9" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">9. String Methods</a>
+            <a href="#section-10" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">10. Math Methods</a>
+            <a href="#section-11" class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 whitespace-nowrap font-medium hover:bg-slate-700 transition">11. Loops & Arrays</a>
+            <a href="#section-12" class="px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap font-medium hover:bg-emerald-500/20 transition">⚡ Quick Drills</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-6 space-y-8">
+
+        <!-- Banner -->
+        <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-transparent p-5 rounded-2xl border border-amber-500/20 space-y-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">Comprehensive Exam Reviewer</span>
+            <h2 class="text-xl font-bold text-white">Java Programming Ultimate Guide 💡</h2>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Complete module reviewer designed for mobile and desktop. Includes syntax explanations, simple Tagalog breakdowns, code snippets, and active practice cards.
+            </p>
+        </div>
+
+        <!-- Section 1: Introduction to Java -->
+        <section id="section-1" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">01</span>
+                <h3 class="text-lg font-bold text-white">1. Introduction to Java & WORA</h3>
+            </div>
+            
+            <p class="text-slate-300 text-xs sm:text-sm">
+                Java was developed by Sun Microsystems in 1995. It is a premier, high-level, class-based, and object-oriented programming language designed for backend systems, enterprise software, big data, and Android applications.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1 font-bold">High-Level & OOP</strong>
+                    <span class="text-slate-400">Easy to read for humans; structured around classes (blueprints) and objects (data + behaviors).</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1 font-bold">Write Once, Run Anywhere</strong>
+                    <span class="text-slate-400">Java compiles code into intermediate <b>bytecode</b>. The <b>JVM (Java Virtual Machine)</b> runs this bytecode on any OS.</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1 font-bold">Secure & Robust</strong>
+                    <span class="text-slate-400">Eliminates memory pointers and relies on automated <b>Garbage Collection</b> to prevent memory leaks and crashes.</span>
+                </div>
+            </div>
+
+            <!-- Program Structure Code Box -->
+            <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                    <span>Program Structure Example</span>
+                    <button class="copy-btn hover:text-amber-400 text-xs transition"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <pre class="p-4 text-xs sm:text-sm text-slate-200 overflow-x-auto"><code><span class="text-purple-400">package</span> myfirstproject;
+
+<span class="text-purple-400">public class</span> <span class="text-amber-300">Main</span> {
+    <span class="text-purple-400">public static void</span> <span class="text-blue-400">main</span>(String[] args) {
+        System.out.println(<span class="text-emerald-300">"Hello, World!"</span>);
+    }
+}</code></pre>
+            </div>
+
+            <!-- Tagalog Explanation -->
+            <div class="bg-slate-800/40 p-4 rounded-xl space-y-2 text-xs text-slate-300 border-l-4 border-amber-500">
+                <strong class="text-amber-400 block font-bold uppercase text-[10px] tracking-wider">💡 Simple Breakdown / Paliwanag</strong>
+                <p>• <b>package:</b> Parang folder sa computer kung saan naka-store ang related files.</p>
+                <p>• <b>public class Main:</b> Blueprint ng program. <b>Strict Rule:</b> Dapat parehong-pareho ang pangalan ng class sa file name (<code class="text-amber-300">Main.java</code>).</p>
+                <p>• <b>public static void main(String[] args):</b> Ito ang "Green Play Button" o entry point ng Java program. Kapag wala ito, hindi tatakbo ang code.</p>
+                <p>• <b>System.out.println():</b> Ang nagpapadala ng text papunta sa screen at lumilipat sa kasunod na linya.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Conventions -->
+        <section id="section-2" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">02</span>
+                <h3 class="text-lg font-bold text-white">2. Naming Conventions & Rules</h3>
+            </div>
+
+            <p class="text-slate-300 text-xs sm:text-sm">
+                Java is <b>case-sensitive</b> (capital <code class="text-amber-300">'A'</code> is distinct from lowercase <code class="text-amber-300">'a'</code>). We use standard naming patterns so other developers can read our code cleanly.
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs text-slate-300 border border-slate-800 rounded-xl overflow-hidden">
+                    <thead class="bg-slate-800/60 text-amber-400">
+                        <tr>
+                            <th class="p-3">Type</th>
+                            <th class="p-3">Convention</th>
+                            <th class="p-3">Incorrect Example</th>
+                            <th class="p-3">Correct Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 bg-slate-950 font-mono">
+                        <tr>
+                            <td class="p-3 font-sans font-semibold text-white">Class Name</td>
+                            <td class="p-3">UpperCamelCase (PascalCase)</td>
+                            <td class="p-3 text-rose-400">studentprofile, student_profile</td>
+                            <td class="p-3 text-emerald-400">StudentProfile</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-sans font-semibold text-white">Variable / Method</td>
+                            <td class="p-3">lowerCamelCase</td>
+                            <td class="p-3 text-rose-400">Fullname, full_name</td>
+                            <td class="p-3 text-emerald-400">fullName, getScore()</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-slate-800/40 p-4 rounded-xl space-y-1 text-xs text-slate-300 border-l-4 border-amber-500">
+                <strong class="text-amber-400 block font-bold uppercase text-[10px] tracking-wider">💡 Code Indentation Note</strong>
+                <p>Ang mga curly braces <code class="text-amber-300">{ }</code> ay nagdidikta ng scope o boundary ng code. Lahat ng nasa loob ng braces ay pinalalayo ng 4 spaces (1 tab) pakanan para madaling makita kung saan nagsisimula at nagtatapos ang isang method.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Input / Output -->
+        <section id="section-3" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">03</span>
+                <h3 class="text-lg font-bold text-white">3. Input/Output (I/O) & Default Streams</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1">System.out</strong>
+                    <span class="text-slate-400">Standard Output Pipe. Used to write regular text to the screen console.</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1">System.in</strong>
+                    <span class="text-slate-400">Standard Input Pipe. Used to read raw keystrokes from the user's keyboard.</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-rose-400 block mb-1">System.err</strong>
+                    <span class="text-slate-400">Standard Error Pipe. Used to output warnings/errors (highlights in red in NetBeans).</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                    <span>Scanner I/O Demo</span>
+                    <button class="copy-btn hover:text-amber-400 text-xs transition"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <pre class="p-4 text-xs sm:text-sm text-slate-200 overflow-x-auto"><code><span class="text-purple-400">import</span> java.util.Scanner;
+
+<span class="text-purple-400">public class</span> <span class="text-amber-300">CrushCalculator</span> {
+    <span class="text-purple-400">public static void</span> <span class="text-blue-400">main</span>(String[] args) {
+        Scanner inputReader = <span class="text-purple-400">new</span> Scanner(System.in);
+        
+        System.out.print(<span class="text-emerald-300">"Enter Crush's name: "</span>); <span class="text-slate-500">// Leaves cursor on same line</span>
+        String crushName = inputReader.<span class="text-blue-400">nextLine</span>();     <span class="text-slate-500">// Reads full string line</span>
+        
+        System.out.println(<span class="text-emerald-300">"Compatibility: 99.9% with "</span> + crushName);
+        System.err.println(<span class="text-rose-300">"[WARNING]: Do not assume."</span>); <span class="text-slate-500">// Error stream</span>
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 4: Data Types & Typecasting -->
+        <section id="section-4" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">04</span>
+                <h3 class="text-lg font-bold text-white">4. Data Types & Typecasting</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono">
+                    <span class="text-amber-300 font-bold">int age = 20;</span>
+                    <p class="text-slate-400 font-sans mt-1">Whole numbers without decimal places.</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono">
+                    <span class="text-amber-300 font-bold">double price = 99.95;</span>
+                    <p class="text-slate-400 font-sans mt-1">Floating-point numbers with decimals.</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono">
+                    <span class="text-amber-300 font-bold">char grade = 'A';</span>
+                    <p class="text-slate-400 font-sans mt-1">Single character inside single quotes ' '.</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono">
+                    <span class="text-amber-300 font-bold">boolean isSingle = true;</span>
+                    <p class="text-slate-400 font-sans mt-1">Logical state: true or false.</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 sm:col-span-2 font-mono">
+                    <span class="text-amber-300 font-bold">String name = "Maria";</span>
+                    <p class="text-slate-400 font-sans mt-1">Reference type! Sequence of characters enclosed in double quotes " ".</p>
+                </div>
+            </div>
+
+            <!-- Typecasting -->
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-wider block">Typecasting (Conversion)</span>
+                <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                    <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1">
+                        <strong class="text-white block">Implicit (Widening)</strong>
+                        <p class="text-slate-400">Automatic conversion from small to large type (e.g., int to double). No precision loss.</p>
+                        <code class="text-emerald-300 block font-mono">double b = 10; // Result: 10.0</code>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1">
+                        <strong class="text-white block">Explicit (Narrowing)</strong>
+                        <p class="text-slate-400">Manual cast needed (large to small type). Decimals are lost/truncated!</p>
+                        <code class="text-rose-300 block font-mono">int p = (int) 99.95; // Result: 99</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Math Operators -->
+        <section id="section-5" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">05</span>
+                <h3 class="text-lg font-bold text-white">5. Mathematical & Logical Operators</h3>
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/20 p-3.5 rounded-xl space-y-1 text-xs">
+                <strong class="text-amber-400 block font-bold">⚠️ Critical Exam Rules: Modulo & Integer Division</strong>
+                <p class="text-slate-300">
+                    • <b>Integer Division (<code class="text-amber-300">/</code>):</b> When dividing two whole numbers, Java drops the decimal part! <code class="text-amber-300">7 / 2 = 3</code> (not 3.5).<br>
+                    • <b>Modulo (<code class="text-amber-300">%</code>):</b> Returns the division remainder. <code class="text-amber-300">13 % 6 = 1</code>.
+                </p>
+            </div>
+
+            <!-- Logical Operators Grid -->
+            <div class="grid grid-cols-3 gap-2 text-xs text-center">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 font-bold block mb-1">&& (AND)</code>
+                    <span class="text-slate-400">True only when BOTH conditions are true.</span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 font-bold block mb-1">|| (OR)</code>
+                    <span class="text-slate-400">True if AT LEAST ONE condition is true.</span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 font-bold block mb-1">! (NOT)</code>
+                    <span class="text-slate-400">Inverts true to false & vice versa.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Bitwise Operators -->
+        <section id="section-6" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">06</span>
+                <h3 class="text-lg font-bold text-white">6. Bitwise Operators & Binary Mechanics</h3>
+            </div>
+
+            <p class="text-slate-300 text-xs sm:text-sm">
+                A <b>bit</b> (binary digit) is either <b>0</b> (OFF) or <b>1</b> (ON). 8 bits equal 1 Byte. Bitwise operators work directly on binary digits.
+            </p>
+
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
+                <span class="text-amber-400 font-bold block">Bitwise Calculations (a = 5 [0101], b = 3 [0011])</span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono">
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">a & b (AND)</span>
+                        <strong class="text-emerald-400 text-sm">1 (0001)</strong>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">a | b (OR)</span>
+                        <strong class="text-emerald-400 text-sm">7 (0111)</strong>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">a ^ b (XOR)</span>
+                        <strong class="text-emerald-400 text-sm">6 (0110)</strong>
+                    </div>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">5 &lt;&lt; 2 (Left Shift)</span>
+                        <strong class="text-emerald-400 text-sm">20 (5 * 2²)</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Precedence -->
+        <section id="section-7" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">07</span>
+                <h3 class="text-lg font-bold text-white">7. Precedence & Worked Step-by-Step</h3>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-800 text-xs text-amber-400 font-bold">
+                    Worked Problem: int result = 10 + 2 &lt;&lt; 1 &amp; 15;
+                </div>
+                <div class="p-4 text-xs font-mono space-y-2 text-slate-300">
+                    <p>1. Addition (+) has higher priority: 10 + 2 = 12 ➔ <code>12 &lt;&lt; 1 &amp; 15</code></p>
+                    <p>2. Shift (&lt;&lt;) executes next: 12 &lt;&lt; 1 = 24 ➔ <code>24 &amp; 15</code></p>
+                    <p>3. Bitwise AND (&amp;): 24 (11000) &amp; 15 (01111) = 8 (01000)</p>
+                    <p class="text-emerald-400 font-bold">Final Output: result = 8</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Decision Making & Switch -->
+        <section id="section-8" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">08</span>
+                <h3 class="text-lg font-bold text-white">8. Decision Making & Modern Switch</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-amber-400 text-sm block font-bold">Traditional Switch (case :)</strong>
+                    <p class="text-slate-400">Requires explicit <code class="text-rose-400">break;</code> statements to avoid fall-through bugs into subsequent cases.</p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-emerald-400 text-sm block font-bold">Modern Arrow Switch (case ->)</strong>
+                    <p class="text-slate-400">No fall-through! Evaluates directly and can return a value using <code class="text-emerald-400">yield</code> in multi-line blocks.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-800 text-xs text-slate-400">Modern Switch Syntax</div>
+                <pre class="p-4 text-xs sm:text-sm text-slate-200 overflow-x-auto"><code>String day = <span class="text-emerald-300">"MONDAY"</span>;
+String type = <span class="text-purple-400">switch</span> (day) {
+    <span class="text-purple-400">case</span> <span class="text-emerald-300">"MONDAY"</span>, <span class="text-emerald-300">"FRIDAY"</span> -> <span class="text-emerald-300">"Weekday"</span>;
+    <span class="text-purple-400">case</span> <span class="text-emerald-300">"SATURDAY"</span> -> {
+        System.out.println(<span class="text-emerald-300">"Weekend!"</span>);
+        <span class="text-purple-400">yield</span> <span class="text-emerald-300">"Rest Day"</span>;
+    }
+    <span class="text-purple-400">default</span> -> <span class="text-emerald-300">"Invalid"</span>;
+};</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 9: String Methods -->
+        <section id="section-9" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">09</span>
+                <h3 class="text-lg font-bold text-white">9. String Methods & Escape Sequences</h3>
+            </div>
+
+            <div class="bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl text-xs text-rose-300 font-medium">
+                🚨 Never use <code class="font-bold">==</code> to compare String contents! Use <code class="font-bold font-mono">equals()</code> or <code class="font-bold font-mono">equalsIgnoreCase()</code>.
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-amber-300 font-bold block">length()</span>
+                    <span class="text-slate-400 font-sans">Number of characters.</span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-amber-300 font-bold block">charAt(0)</span>
+                    <span class="text-slate-400 font-sans">First character (Zero-based).</span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-amber-300 font-bold block">indexOf("x")</span>
+                    <span class="text-slate-400 font-sans">Index of target (-1 if missing).</span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-amber-300 font-bold block">trim()</span>
+                    <span class="text-slate-400 font-sans">Removes leading/trailing spaces.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Math Methods -->
+        <section id="section-10" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">10</span>
+                <h3 class="text-lg font-bold text-white">10. Java Math Utility Methods</h3>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.ceil(4.1)</code>
+                    <span class="text-slate-400">Rounds UP ➔ <b>5.0</b></span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.floor(4.9)</code>
+                    <span class="text-slate-400">Rounds DOWN ➔ <b>4.0</b></span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.abs(-15)</code>
+                    <span class="text-slate-400">Absolute distance ➔ <b>15</b></span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.pow(2, 3)</code>
+                    <span class="text-slate-400">Exponent ➔ <b>8.0</b></span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.sqrt(25)</code>
+                    <span class="text-slate-400">Square root ➔ <b>5.0</b></span>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <code class="text-amber-300 block font-bold mb-1">Math.random()</code>
+                    <span class="text-slate-400">Random 0.0 to 0.999...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Loops & Arrays -->
+        <section id="section-11" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">11</span>
+                <h3 class="text-lg font-bold text-white">11. Loops & Array Structures</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1">for Loop</strong>
+                    <span class="text-slate-400">Best when exact repetition count is known.</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1">while Loop</strong>
+                    <span class="text-slate-400">Pre-tested condition. May execute 0 times.</span>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-amber-400 block mb-1">do-while Loop</strong>
+                    <span class="text-slate-400">Post-tested. <b>Always executes at least once!</b></span>
+                </div>
+            </div>
+
+            <!-- Arrays -->
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
+                <span class="text-amber-400 font-bold block uppercase tracking-wider">Array Indexing & Bounds</span>
+                <p class="text-slate-300">Array indices always start at <b>0</b>. The last valid index is <b>arr.length - 1</b>.</p>
+                <code class="text-emerald-300 font-mono block">int[][] grid = { {10, 20}, {40, 50} }; // grid[1][0] is 40</code>
+            </div>
+        </section>
+
+        <!-- Section 12: Interactive Drills -->
+        <section id="section-12" class="topic-card bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">⚡</span>
+                    <h3 class="text-lg font-bold text-white">Interactive Practice Cards</h3>
+                </div>
+                <span class="text-xs text-slate-400">Tap card to reveal answer</span>
+            </div>
+
+            <div id="flashcardsContainer" class="grid sm:grid-cols-2 gap-3">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Live Search Handler
+        const toggleSearchBtn = document.getElementById('toggleSearchBtn');
+        const searchContainer = document.getElementById('searchContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        toggleSearchBtn.addEventListener('click', () => {
+            searchContainer.classList.toggle('hidden');
+            if (!searchContainer.classList.contains('hidden')) {
+                searchInput.focus();
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.topic-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Copy Code Buttons
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.closest('.bg-slate-950').querySelector('code').innerText;
+                navigator.clipboard.writeText(code);
+                btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+                }, 2000);
+            });
+        });
+
+        // Interactive Practice Cards Data
+        const drills = [
+            { q: "What is the output of 13 % 6?", a: "1 (Division remainder)" },
+            { q: "What is the value of (int) 99.95?", a: "99 (Decimals are truncated)" },
+            { q: "Which loop always executes at least once?", a: "do-while loop" },
+            { q: "What is the first valid index of a Java array?", a: "0" },
+            { q: "What is 5 << 2 for a positive integer?", a: "20 (5 * 2^2)" },
+            { q: "What is the output of \"Result: \" + 5 + 5?", a: "\"Result: 55\"" },
+            { q: "What is the output of \"Result: \" + (5 + 5)?", a: "\"Result: 10\"" },
+            { q: "What keyword provides a value in a multi-line switch block?", a: "yield" },
+            { q: "What does break do inside a loop?", a: "Instantly terminates the loop" },
+            { q: "What does continue do inside a loop?", a: "Skips remaining code and moves to the next iteration" }
+        ];
+
+        const container = document.getElementById('flashcardsContainer');
+
+        drills.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = "bg-slate-950 p-4 rounded-xl border border-slate-800 cursor-pointer hover:border-amber-500/50 transition space-y-2 select-none";
+            card.innerHTML = `
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span class="font-bold text-amber-400">Card #${index + 1}</span>
+                    <i class="fa-solid fa-rotate text-slate-500"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 font-medium">${item.q}</p>
+                <div class="answer hidden pt-2 border-t border-slate-800 text-xs text-emerald-400 font-semibold font-mono">
+                    Answer: ${item.a}
+                </div>
+            `;
+
+            card.addEventListener('click', () => {
+                const ans = card.querySelector('.answer');
+                ans.classList.toggle('hidden');
+            });
+
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
